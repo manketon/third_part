@@ -59,12 +59,7 @@ function(download_dirent)
 endfunction()
 
 if(EXISTS ${DIRENT_DOWNLOAD_DIR}/${DIRENT_CACHE_FILENAME})
-  file(MD5 ${DIRENT_DOWNLOAD_DIR}/${DIRENT_CACHE_FILENAME} DIRENT_MD5)
-  if(NOT DIRENT_MD5 STREQUAL DIRENT_URL_MD5)
-    # clean build file
-    file(REMOVE_RECURSE ${DIRENT_PREFIX_DIR})
-    download_dirent()
-  endif()
+
 else()
   download_dirent()
 endif()
